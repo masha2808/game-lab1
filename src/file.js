@@ -14,7 +14,11 @@ function getFilePath() {
 }
 
 function readFile(filePath) {
-  return fs.readFileSync(filePath, { encoding: 'utf8', flag: 'r' });
+  try {
+    return fs.readFileSync(filePath, { encoding: 'utf8', flag: 'r' });
+  } catch (e) {
+    throw new Error(`Error while reading file or file was not found`);
+  }
 }
 
 module.exports = {

@@ -13,6 +13,7 @@ function runTestCases() {
     });
   } catch (error) {
     console.log(error.message)
+    runTestCases();
   }
 }
 

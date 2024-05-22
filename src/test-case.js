@@ -4,7 +4,7 @@ const { CONSTANTS } = require("./constants");
 function getTestCaseList(inputData) {
   const dataRows = inputData.split("\r\n");
 
-  if (dataRows.length === 0 || Number(dataRows[0]) === NaN || Number(dataRows[0]) < 1 || Number(dataRows[0]) > 11) {
+  if (dataRows.length === 0 || Number(dataRows[0]) === NaN || Number(dataRows[0]) < CONSTANTS.MIN_TEST_CASE_NUMBER || Number(dataRows[0]) > CONSTANTS.MAX_TEST_CASE_NUMBER) {
     throw new Error("Incorrect number of test cases");
   }
 
@@ -20,7 +20,7 @@ function getTestCaseList(inputData) {
   for (let i = 1; i < dataRows.length; i++) {
     const row = dataRows[i].split(' ');
 
-    if (row.some(value => Number(value) === NaN || Number(value) < 0 || Number(value) > 2)) {
+    if (row.some(value => Number(value) === NaN || Number(value) < 0 || Number(value) > 2) || row.length !== CONSTANTS.MATRIX_SIZE) {
       throw new Error("Incorrect test cases");
     }
 
