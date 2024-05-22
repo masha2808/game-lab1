@@ -1,6 +1,8 @@
 const CONSTANTS = {
   MATRIX_SIZE: 19,
-  STEP: 4
+  STEP: 4,
+  MIN_TEST_CASE_NUMBER: 1,
+  MAX_TEST_CASE_NUMBER: 11
 };
 
 module.exports = {
